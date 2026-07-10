@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4b6d2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aura studio :･ﾟ✧*:･ﾟ✧</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="controls">
+
+<label class="color-control">
+  <span>Background</span>
+  <input type="color" id="backgroundPicker" value="#f4b6d2" />
+  <span class="color-dot" id="backgroundDot"></span>
+</label>
+
+<label class="color-control">
+  <span>Aura</span>
+  <input type="color" id="colorPicker" value="#ff7a5c" />
+  <span class="color-dot" id="auraDot"></span>
+</label>
+
+    <button id="addAuraButton">+ Add Aura</button>
+    <button id="undoButton">Undo</button>
+    <button id="redoButton">Redo</button>
+    <button id="clearButton">Clear</button>
+    <button id="textureButton">Texture</button>
+    <button id="downloadButton">Download</button>
+  </div>
+
+  <div id="sizePopover" class="size-popover hidden">
+  <span>Size</span>
+  <input type="range" id="sizeSlider" min="60" max="420" value="180">
+</div>
+
+<div class="instructions" id="instructions">
+  <button class="instructions-close" id="instructionsClose">×</button>
+
+  <div class="desktop-instructions">
+    <p>Click anywhere to place aura</p>
+    <p>Click and drag aura to reshape</p>
+    <p>Click aura edge to soften</p>
+  </div>
+
+  <div class="mobile-instructions">
+    <p>Tap anywhere to place aura</p>
+    <p>Tap and drag aura to reshape</p>
+    <p>Tap aura edge to soften</p>
+  </div>
+</div>
+
+  <div id="canvas">
+    <svg id="auraSvg"></svg>
+    <div id="textureLayer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

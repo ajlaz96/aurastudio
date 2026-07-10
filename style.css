@@ -1,0 +1,220 @@
+html,
+body {
+  color-scheme: light only;
+  background: #f4b6d2;
+  color: #111;
+}
+
+button,
+label,
+input,
+.size-popover {
+  color-scheme: light only;
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.88);
+}
+
+input[type="range"] {
+  accent-color: #111;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+#canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #f4b6d2;
+  overflow: hidden;
+}
+
+.controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+button,
+input[type="color"],
+label {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.aura-shape {
+  cursor: grab;
+  filter: blur(var(--blur));
+  opacity: 0.9;
+}
+
+.aura-shape:active {
+  cursor: grabbing;
+}
+
+#textureLayer {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  background-image: url("grain.png");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.4;
+  mix-blend-mode: normal;
+}
+
+#textureLayer.active {
+  display: block;
+}
+
+#auraSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.color-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-control input[type="color"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+#backgroundDot {
+  background: #f4b6d2;
+}
+
+#auraDot {
+  background: #ff7a5c;
+}
+
+html, body, #canvas, #auraSvg {
+  touch-action: none;
+}
+
+@media (max-width: 700px) {
+  body {
+    background: #f4b6d2;
+    overflow: hidden;
+  }
+
+  #canvas {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.size-control {
+  flex-basis: 100%;
+  width: fit-content;
+  display: inline-flex;
+
+}
+
+.size-popover {
+  position: fixed;
+  top: 76px;
+  left: 20px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: rgba(255,255,255,0.88);
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.size-popover.hidden {
+  display: none;
+}
+
+.size-popover input {
+  width: 150px;
+}
+
+@media (max-width: 700px) {
+  .size-popover {
+    top: 132px;
+    left: 12px;
+  }
+}
+
+.mobile-instructions {
+  display: none;
+}
+
+.instructions-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.instructions {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 20;
+  background: rgba(255,255,255,0.85);
+  padding: 14px 34px 14px 16px;
+  border-radius: 18px;
+}
+
+.instructions.hidden {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .desktop-instructions {
+    display: none;
+  }
+
+  .mobile-instructions {
+    display: block;
+  }
+}

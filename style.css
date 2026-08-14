@@ -218,3 +218,292 @@ html, body, #canvas, #auraSvg {
     display: block;
   }
 }
+
+/* ---------------------------------
+   MOBILE CUSTOM COLOUR PICKER
+---------------------------------- */
+
+.mobile-color-picker {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: 125px;
+
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.96);
+  padding: 14px;
+  border-radius: 20px;
+
+  box-sizing: border-box;
+}
+
+.mobile-color-picker.hidden {
+  display: none;
+}
+
+.mobile-color-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+#mobileColorPickerTitle {
+  font-size: 14px;
+}
+
+#mobileColorPickerDone {
+  border: none;
+  background: transparent;
+  padding: 4px 6px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* Main saturation / brightness square */
+
+.color-field {
+  position: relative;
+
+  width: 100%;
+  height: 180px;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  touch-action: none;
+
+  /*
+    JS changes the final colour underneath these
+    two gradients.
+  */
+
+  background:
+    linear-gradient(to top, #000, transparent),
+    linear-gradient(to right, #fff, transparent),
+    hsl(0, 100%, 50%);
+}
+
+
+/* Little selector circle */
+
+.color-field-cursor {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border: 2px solid white;
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.35);
+
+  transform: translate(-50%, -50%);
+
+  left: 100%;
+  top: 0%;
+
+  pointer-events: none;
+}
+
+
+/* Rainbow slider */
+
+.hue-slider {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 100%;
+  height: 18px;
+
+  margin-top: 14px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to right,
+      #ff0000,
+      #ffff00,
+      #00ff00,
+      #00ffff,
+      #0000ff,
+      #ff00ff,
+      #ff0000
+    );
+
+  outline: none;
+}
+
+
+/* Chrome / Safari slider thumb */
+
+.hue-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: white;
+  border: 2px solid rgba(0,0,0,0.25);
+
+  cursor: pointer;
+}
+
+
+/* Firefox slider thumb */
+
+.hue-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: white;
+  border: 2px solid rgba(0,0,0,0.25);
+
+  cursor: pointer;
+}
+
+
+/* Desktop should continue using native colour picker */
+
+@media (min-width: 701px) {
+
+  .mobile-color-picker {
+    display: none !important;
+  }
+
+}
+/* ==========================================
+   HIDE / SHOW TOOLS
+========================================== */
+
+.hide-tools-button {
+  position: fixed;
+  z-index: 30;
+
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.88);
+  color: #111;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+
+/* Desktop:
+   place Hide tools beside Size */
+
+@media (min-width: 701px) {
+
+  .hide-tools-button {
+    top: 76px;
+    left: 255px;
+  }
+
+}
+
+
+/* Mobile:
+   place Hide tools beside Size */
+
+@media (max-width: 700px) {
+
+  .hide-tools-button {
+    top: 132px;
+    right: 12px;
+  }
+
+}
+
+
+/* Show tools is only visible while tools are hidden */
+
+.show-tools-button {
+  display: none;
+
+  position: fixed;
+  z-index: 200;
+
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+/* Desktop: top-left */
+
+@media (min-width: 701px) {
+
+  .show-tools-button {
+    top: 20px;
+    left: 20px;
+  }
+
+}
+
+
+/* Mobile: top-right */
+
+@media (max-width: 700px) {
+
+  .show-tools-button {
+    top: 12px;
+    right: 12px;
+  }
+
+}
+
+
+/* Hide all editing UI */
+
+body.tools-hidden .controls,
+body.tools-hidden .instructions,
+body.tools-hidden .size-popover,
+body.tools-hidden .hide-tools-button,
+body.tools-hidden .mobile-color-picker {
+  display: none !important;
+}
+
+
+/* Keep Show tools visible */
+
+body.tools-hidden .show-tools-button {
+  display: block;
+}
+
+.aura-instagram-link {
+  display: inline-block;
+  margin-top: 6px;
+
+  font-size: 13px;
+  color: #0000FF;
+  text-decoration: underline;
+
+  opacity: 0.65;
+}
+
+.aura-instagram-link:hover {
+  opacity: 1;
+}

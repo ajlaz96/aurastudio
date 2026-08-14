@@ -39,6 +39,42 @@
   <span>Size</span>
   <input type="range" id="sizeSlider" min="60" max="420" value="180">
 </div>
+<button
+  type="button"
+  id="hideToolsButton"
+  class="hide-tools-button">
+  Hide tools
+</button>
+
+<button
+  type="button"
+  id="showToolsButton"
+  class="show-tools-button">
+  Show tools
+</button>
+
+<!-- Custom mobile colour picker -->
+<div id="mobileColorPicker" class="mobile-color-picker hidden">
+
+  <div class="mobile-color-picker-header">
+    <span id="mobileColorPickerTitle">Choose colour</span>
+    <button type="button" id="mobileColorPickerDone">Done</button>
+  </div>
+
+  <div id="colorField" class="color-field">
+    <div id="colorFieldCursor" class="color-field-cursor"></div>
+  </div>
+
+  <input
+    type="range"
+    id="hueSlider"
+    class="hue-slider"
+    min="0"
+    max="360"
+    value="0"
+  >
+
+</div>
 
 <div class="instructions" id="instructions">
   <button class="instructions-close" id="instructionsClose">×</button>
@@ -54,6 +90,14 @@
     <p>Tap and drag aura to reshape</p>
     <p>Tap aura edge to soften</p>
   </div>
+
+  <a
+    class="aura-instagram-link"
+    href="https://www.instagram.com/aura_a_day/"
+    target="_blank"
+    rel="noopener noreferrer">
+    @aura_a_day
+  </a>
 </div>
 
   <div id="canvas">
